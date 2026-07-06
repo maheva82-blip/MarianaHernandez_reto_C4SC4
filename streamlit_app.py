@@ -6,13 +6,13 @@
 
 import streamlit as st
 import pandas as pd
+import numpy as np
+
 from PIL import Image
 
 
 #  1. Código para desplegar el títuloy descripción
-'''
-# Conociendo el desempeño de los colaboradores - Area de Marketing
-'''
+st.title("Conociendo el desempeño de los colaboradores - Area de Marketing")
 
 #  2. Código para desplegar el logotipo de la empresa
 image = Image.open('logo.jpg')
@@ -20,7 +20,8 @@ st.image(image,caption='')
 
 #  3. Código para incluir un control para seleccionar
 #     el género del empleado
-
+employee_data = pd.read_csv("Employee_data.csv")
+selected_gender = st.radio("Select Gender", employee_data['gender'].unique())
 
 #  4. Código para incluir un control para seleccionar el rango del
 #     puntaje de desempeño del empleado
@@ -28,6 +29,7 @@ st.image(image,caption='')
 
 #  5. Código para incluir un control para seleccionar
 #     el estado civil del empleado
+selected_marital_status = st.radio("Select Marital Status", employee_data['marital_status'].unique())
 
 
 #  6. Código para visualizar la distribución de los
