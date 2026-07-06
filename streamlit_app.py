@@ -6,15 +6,17 @@
 
 import streamlit as st
 import pandas as pd
+from PIL import Image
 
 
 #  1. Código para desplegar el títuloy descripción
 '''
-# Conociendo el desempeño de los colaboradores de
+# Conociendo el desempeño de los colaboradores - Area de Marketing
 '''
 
 #  2. Código para desplegar el logotipo de la empresa
-
+image = Image.open('logo.jpg')
+st.image(image,caption='')
 
 #  3. Código para incluir un control para seleccionar
 #     el género del empleado
