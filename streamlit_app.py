@@ -26,8 +26,8 @@ selected_gender = st.radio("Select Gender", employee_data['gender'].unique())
 #  4. Código para incluir un control para seleccionar el rango del
 #     puntaje de desempeño del empleado
 performance_select = st.slider("Select the performance score",
-                                      min_value=float(employee_data['performance_score']),
-                                      max_value=float(employee_data['performance_score']))
+                                      min_value=float(employee_data['performance_score'].min()),
+                                      max_value=float(employee_data['performance_score'].max()))
 subset_performance = employee_data[(employee_data['performance_score']>=performance_select)]
 st.write(f"Number of records with this Performance {performance_select}: {subset_performance.shape[0]}")
 
