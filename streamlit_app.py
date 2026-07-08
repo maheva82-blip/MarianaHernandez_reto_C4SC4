@@ -29,8 +29,8 @@ selected_gender = st.radio("Select Gender", employee_data['gender'].unique())
 perform_min, perform_max = st.slider("Select the performance score",
                                       min_value=0,
                                       max_value=int(employee_data['performance_score'].max()), step=1, value=[1,2])
-subset_performance = employee_data[employee_data['performance_score'].between(perf_min, perf_max)]
-st.write(f"Number of records with this Performance {performance_select}: {subset_performance.shape[0]}")
+subset_performance = employee_data[employee_data['performance_score'].between(perform_min, perform_max)]
+st.write(f"Number of records with Performance between {perform_min} and {perform_max}: {subset_performance.shape[0]}")
 
 
 #  5. Código para incluir un control para seleccionar
