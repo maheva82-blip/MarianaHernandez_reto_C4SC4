@@ -17,7 +17,7 @@ st.title("Conociendo el desempeño de los colaboradores - Area de Marketing")
 
 #  2. Código para desplegar el logotipo de la empresa
 image = Image.open('logo.jpg')
-st.image(image,caption='')
+st.logo(image,size="small")
 
 #  3. Código para incluir un control para seleccionar
 #     el género del empleado
