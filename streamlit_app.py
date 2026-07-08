@@ -7,6 +7,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import ploty as px
 
 from PIL import Image
 
@@ -26,8 +27,8 @@ selected_gender = st.radio("Select Gender", employee_data['gender'].unique())
 #  4. Código para incluir un control para seleccionar el rango del
 #     puntaje de desempeño del empleado
 performance_select = st.slider("Select the performance score",
-                                      min_value=float(employee_data['performance_score'].min()),
-                                      max_value=float(employee_data['performance_score'].max()))
+                                      min_value=0,
+                                      max_value=int(employee_data['performance_score'].max()), step=1, value=[1,2])
 subset_performance = employee_data[(employee_data['performance_score']>=performance_select)]
 st.write(f"Number of records with this Performance {performance_select}: {subset_performance.shape[0]}")
 
