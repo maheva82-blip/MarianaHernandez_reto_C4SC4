@@ -25,7 +25,7 @@ selected_gender = st.radio("Select Gender", employee_data['gender'].unique())
 
 #  4. Código para incluir un control para seleccionar el rango del
 #     puntaje de desempeño del empleado
-optionals = st.beta_expander("Optional configurations",True)
+optionals = st.expander("Optional configurations",True)
 performance_select = optionals.slider("Select the performance score",
                                       min_value=int(employee_data['performance_score']),
                                       max_value=int(employee_data['performance_score']))
