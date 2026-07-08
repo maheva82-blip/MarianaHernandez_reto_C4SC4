@@ -7,7 +7,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-
+import plotly.express as px
 
 from PIL import Image
 
@@ -46,8 +46,8 @@ selected_marital_status = st.multiselect("Select Marital Status", employee_data[
 
 #  7. Código para visualizar el promedio de las
 #     horas trabajadas por el género del empleado
-#fig = px.line(df, x="average_work_hours", y="gender", title="Average Working Hours vs Gender")
-#st.plotly_chart(fig, use_container_width=True)
+fig = px.line(employee_data, x="average_work_hours", y="gender", title="Average Working Hours vs Gender")
+st.plotly_chart(fig, use_container_width=True)
 
 #  8. Código para visualizar la edad de los empleados
 #     con respecto al salario del empleado
