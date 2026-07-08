@@ -25,6 +25,12 @@ selected_gender = st.radio("Select Gender", employee_data['gender'].unique())
 
 #  4. Código para incluir un control para seleccionar el rango del
 #     puntaje de desempeño del empleado
+optionals = st.beta_expander("Optional configurations",True)
+performance_select = optionals.slider("Select the performance score",
+                                      min_value=int(employee_data['performance_score']),
+                                      max_value=int(employee_data['performance_score']))
+subset_performance = employee_data[(employee_data['performance_score']>=performance_select)]
+st.write(f"Number of records with this Performance {performance_select}: {subset_performance.shape[0]}")
 
 
 #  5. Código para incluir un control para seleccionar
@@ -38,7 +44,8 @@ selected_marital_status = st.radio("Select Marital Status", employee_data['marit
 
 #  7. Código para visualizar el promedio de las
 #     horas trabajadas por el género del empleado
-
+fig = px.line(df, x="average_work_hours", y="gender", title='Average Working Hours vs Gender’)
+st.plotly_chart(fig, use_container_width=True)
 
 #  8. Código para visualizar la edad de los empleados
 #     con respecto al salario del empleado
