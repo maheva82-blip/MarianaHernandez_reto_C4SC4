@@ -27,8 +27,8 @@ selected_gender = st.radio("Select Gender", employee_data['gender'].unique())
 #     puntaje de desempeño del empleado
 optionals = st.expander("Optional configurations",True)
 performance_select = optionals.slider("Select the performance score",
-                                      min_value=int(employee_data['performance_score']),
-                                      max_value=int(employee_data['performance_score']))
+                                      min_value=float(employee_data['performance_score']),
+                                      max_value=float(employee_data['performance_score']))
 subset_performance = employee_data[(employee_data['performance_score']>=performance_select)]
 st.write(f"Number of records with this Performance {performance_select}: {subset_performance.shape[0]}")
 
