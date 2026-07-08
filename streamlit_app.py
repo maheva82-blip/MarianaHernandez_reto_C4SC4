@@ -37,7 +37,7 @@ st.write(f"Number of records with Performance between {perform_min} and {perform
 
 #  5. Código para incluir un control para seleccionar
 #     el estado civil del empleado
-selected_marital_status = st.radio("Select Marital Status", employee_data['marital_status'].unique())
+selected_marital_status = st.multiselect("Select Marital Status", employee_data['marital_status'].unique())
 
 
 #  6. Código para visualizar la distribución de los
