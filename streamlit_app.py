@@ -17,7 +17,7 @@ st.title("Conociendo el desempeño de los colaboradores - Area de Marketing")
 
 #  2. Código para desplegar el logotipo de la empresa
 image = Image.open('logo.jpg')
-st.logo(image,size="medium")
+st.logo(image,size="large")
 
 #  3. Código para incluir un control para seleccionar
 #     el género del empleado
@@ -27,8 +27,10 @@ selected_gender = st.radio("Select Gender", employee_data['gender'].unique())
 #  4. Código para incluir un control para seleccionar el rango del
 #     puntaje de desempeño del empleado
 perform_min, perform_max = st.slider("Select the performance score",
-                                      min_value=0,
-                                      max_value=int(employee_data['performance_score'].max()), step=1, value=[1,2])
+                                      min_value=int(employee_data['performance_score'].min()),
+                                      max_value=int(employee_data['performance_score'].max()), 
+                                      step=1, 
+                                      value=[int(employee_data['performance_score'].min()),int(employee_data['performance_score'].max())])
 subset_performance = employee_data[employee_data['performance_score'].between(perform_min, perform_max)]
 st.write(f"Number of records with Performance between {perform_min} and {perform_max}: {subset_performance.shape[0]}")
 
