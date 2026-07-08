@@ -58,6 +58,17 @@ fig = px.scatter(
 fig.update_xaxes(showticklabels=False) 
 st.plotly_chart(fig, use_container_width=True)
 
+fig = px.box(
+    employee_data, 
+    x='gender', 
+    y='average_work_hours', 
+    color='gender',
+    points="all", 
+    hover_data=['name_employee'], # Para que al pasar el mouse diga quién es ese punto
+    title='Average Working Hours vs Gender'
+)
+st.plotly_chart(fig)
+
 #  8. Código para visualizar la edad de los empleados
 #     con respecto al salario del empleado
 
