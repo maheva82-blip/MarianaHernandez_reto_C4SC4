@@ -47,17 +47,6 @@ selected_marital_status = st.multiselect("Select Marital Status", employee_data[
 #  7. Código para visualizar el promedio de las
 #     horas trabajadas por el género del empleado
 
-fig = px.scatter(
-    employee_data, 
-    x='name_employee', 
-    y='average_work_hours', 
-    color='gender',
-    title='Average Working Hours'
-)
-
-fig.update_xaxes(showticklabels=False) 
-st.plotly_chart(fig, use_container_width=True)
-
 fig = px.box(
     employee_data, 
     x='gender', 
