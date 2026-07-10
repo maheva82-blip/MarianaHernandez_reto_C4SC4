@@ -93,7 +93,6 @@ if not employee_filtered.empty:
                   x='performace_score', 
                   y='average_work_hours',
                   color='gender',
-                  hover_data=['name_employee'],
                   title='Performance Rate vs Average working hours')
 
     st.plotly_chart(fig9)
