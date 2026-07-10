@@ -43,6 +43,15 @@ selected_marital_status = st.multiselect("Select Marital Status", employee_data[
 #  6. Código para visualizar la distribución de los
 #     puntajes de desempeño de los empleados
 
+fig6 = px.histogram(employee_data, 
+                    y='performance_score', 
+                    title='Cantidad de Empleados por Rubro de Desempeño',
+                    color='performance_score',
+                    text_auto=True   )         
+
+fig6.update_layout(xaxis=dict(tickmode='linear', tick0=1, dtick=1))
+
+fig6.show()
 
 #  7. Código para visualizar el promedio de las
 #     horas trabajadas por el género del empleado
