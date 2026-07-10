@@ -47,7 +47,7 @@ employee_filtered = employee_data[
     (employee_data['marital_status'].isin(selected_marital_status))
 ]
 
-if not employee_filtered empty:
+if not employee_filtered.empty:
 #  6. Código para visualizar la distribución de los
 #     puntajes de desempeño de los empleados
 
