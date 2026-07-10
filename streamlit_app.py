@@ -70,9 +70,21 @@ st.plotly_chart(fig7)
 #  8. Código para visualizar la edad de los empleados
 #     con respecto al salario del empleado
 
+fig8 = px.scatter(employee_data, 
+                  x='age', 
+                  y= 'salary')
+
+st.plotly_chart(fig8)
 
 #  9. Código para visualizar la relación del promedio
 #  de horas trabajadas versus el puntaje de desempeño
+
+fig9 = px.scatter(employee_data, 
+                  x='average_work_hours', 
+                  y='performance_score')
+
+st.plotly_chart(fig9)
+
 
 
 #  10. Código para desplegar las conclusiones del
