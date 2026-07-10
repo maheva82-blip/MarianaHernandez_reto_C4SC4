@@ -81,7 +81,7 @@ if not employee_filtered.empty:
                   x='age', 
                   y= 'salary',
                   color='gender',
-                  hover_data=['name_employee']
+                  hover_data=['name_employee'],
                   title='Age vs Salary')
 
     st.plotly_chart(fig8)
@@ -93,7 +93,7 @@ if not employee_filtered.empty:
                   x='average_work_hours', 
                   y='performance_score',
                   color='gender',
-                  hover_data=['name_employee']
+                  hover_data=['name_employee'],
                   title='Average Working Hours vs Performance Rate')
 
     st.plotly_chart(fig9)
