@@ -90,7 +90,7 @@ if not employee_filtered.empty:
 #  de horas trabajadas versus el puntaje de desempeño
 
     fig9 = px.bar(employee_filtered, 
-                  x='performace_score', 
+                  x='performance_score', 
                   y='average_work_hours',
                   color='gender',
                   barmode='group',
