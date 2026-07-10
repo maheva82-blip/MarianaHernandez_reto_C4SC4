@@ -89,12 +89,12 @@ if not employee_filtered.empty:
 #  9. Código para visualizar la relación del promedio
 #  de horas trabajadas versus el puntaje de desempeño
 
-    fig9 = px.scatter(employee_filtered, 
-                  x='average_work_hours', 
-                  y='performance_score',
+    fig9 = px.bar(employee_filtered, 
+                  x='performace_score', 
+                  y='average_work_hours',
                   color='gender',
                   hover_data=['name_employee'],
-                  title='Average Working Hours vs Performance Rate')
+                  title='Performance Rate vs Average working hours')
 
     st.plotly_chart(fig9)
 
