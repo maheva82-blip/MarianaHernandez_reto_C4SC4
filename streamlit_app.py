@@ -22,11 +22,11 @@ st.logo(image,size="large")
 #  3. Código para incluir un control para seleccionar
 #     el género del empleado
 employee_data = pd.read_csv("Employee_data.csv")
-selected_gender = st.radio("Select Gender", employee_data['gender'].unique())
+selected_gender = st.sidebar.radio("Select Gender", employee_data['gender'].unique())
 
 #  4. Código para incluir un control para seleccionar el rango del
 #     puntaje de desempeño del empleado
-perform_min, perform_max = st.slider("Select the performance score",
+perform_min, perform_max = st.sidebar.slider("Select the performance score",
                                       min_value=int(employee_data['performance_score'].min()),
                                       max_value=int(employee_data['performance_score'].max()), 
                                       step=1, 
@@ -37,7 +37,7 @@ st.write(f"Number of records with Performance between {perform_min} and {perform
 
 #  5. Código para incluir un control para seleccionar
 #     el estado civil del empleado
-selected_marital_status = st.multiselect("Select Marital Status", employee_data['marital_status'].unique())
+selected_marital_status = st.sidebar.multiselect("Select Marital Status", employee_data['marital_status'].unique())
 
 
 #  6. Código para visualizar la distribución de los
@@ -51,12 +51,12 @@ fig6 = px.histogram(employee_data,
 
 fig6.update_layout(xaxis=dict(tickmode='linear', tick0=1, dtick=1))
 
-fig6.show()
+st.plotly_chart(fig6)
 
 #  7. Código para visualizar el promedio de las
 #     horas trabajadas por el género del empleado
 
-fig = px.box(
+fig7 = px.box(
     employee_data, 
     x='gender', 
     y='average_work_hours', 
@@ -65,7 +65,7 @@ fig = px.box(
     hover_data=['name_employee'], # Para que al pasar el mouse diga quién es ese punto
     title='Average Working Hours vs Gender'
 )
-st.plotly_chart(fig)
+st.plotly_chart(fig7)
 
 #  8. Código para visualizar la edad de los empleados
 #     con respecto al salario del empleado
