@@ -79,7 +79,10 @@ if not employee_filtered.empty:
 
     fig8 = px.scatter(employee_filtered, 
                   x='age', 
-                  y= 'salary')
+                  y= 'salary',
+                  color='gender',
+                  hover_data=['name_employee']
+                  title='Age vs Salary')
 
     st.plotly_chart(fig8)
 
@@ -88,7 +91,10 @@ if not employee_filtered.empty:
 
     fig9 = px.scatter(employee_filtered, 
                   x='average_work_hours', 
-                  y='performance_score')
+                  y='performance_score',
+                  color='gender',
+                  hover_data=['name_employee']
+                  title='Average Working Hours vs Performance Rate')
 
     st.plotly_chart(fig9)
 
