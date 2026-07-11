@@ -105,10 +105,11 @@ if not employee_filtered.empty:
 
 
 
-#  10. Código para desplegar las conclusiones del
-#      análisis en la aplicación web
-
-
-
 else:
     st.warning("No hay datos que coincidan con los filtros seleccionados.")
+
+
+#  10. Código para desplegar las conclusiones del
+#      análisis en la aplicación web
+st.header("Conclusiones")
+st.write("La primera gráfica muestra un desempeño general promedio de 3. El análisis por género revela que las mujeres acumulan más horas trabajadas; no obstante, al segmentar por estado civil, esta diferencia desaparece entre los empleados solteros, quienes muestran un comportamiento equitativo. También se detecta una relación directa entre las horas trabajadas, el salario y el desempeño: el género femenino no solo percibe los salarios más altos, sino que también registra el nivel de desempeño más alto.")
