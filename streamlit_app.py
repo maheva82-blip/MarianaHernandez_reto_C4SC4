@@ -24,7 +24,11 @@ st.logo(image,size="large")
 #      Debido a que podemos mostrar ambos o cualquiera de los dos generos se opta por un multiselect
 employee_data = pd.read_csv("Employee_data.csv")
 
-selected_gender = st.sidebar.multiselect("Select Gender", employee_data['gender'].unique())
+# colocar valores por default
+default_gender = employee_data['gender'].unique()
+default_marital_status = employee_data['marital_status'].unique()
+
+selected_gender = st.sidebar.multiselect("Select Gender", employee_data['gender'].unique(), default = default_gender)
 
 #  4. Código para incluir un control para seleccionar el rango del
 #     puntaje de desempeño del empleado
@@ -39,7 +43,7 @@ st.sidebar.write(f"Number of records with Performance between {perform_min} and 
 
 #  5. Código para incluir un control para seleccionar
 #     el estado civil del empleado
-selected_marital_status = st.sidebar.multiselect("Select Marital Status", employee_data['marital_status'].unique())
+selected_marital_status = st.sidebar.multiselect("Select Marital Status", employee_data['marital_status'].unique(), default = default_marital_status)
 
 employee_filtered = employee_data[
     (employee_data['gender'].isin(selected_gender)) & 
