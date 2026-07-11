@@ -13,7 +13,8 @@ from PIL import Image
 
 
 #  1. Código para desplegar el títuloy descripción
-st.title("Conociendo el desempeño de los colaboradores - Area de Marketing")
+st.title("Desempeño de los colaboradores - Area de Marketing")
+st.write("Conociendo el desempeño de los colaboradores del Área de Marketing de Socialize your knowledge")
 
 #  2. Código para desplegar el logotipo de la empresa
 image = Image.open('logo.jpg')
@@ -28,7 +29,7 @@ employee_data = pd.read_csv("Employee_data.csv")
 default_gender = employee_data['gender'].unique()
 default_marital_status = employee_data['marital_status'].unique()
 
-selected_gender = st.sidebar.multiselect("Select Gender", employee_data['gender'].unique(), default = default_gender)
+selected_gender = st.sidebar.multiselect("Selecciona el genero", employee_data['gender'].unique(), default = default_gender)
 
 #  4. Código para incluir un control para seleccionar el rango del
 #     puntaje de desempeño del empleado
@@ -38,12 +39,12 @@ perform_min, perform_max = st.sidebar.slider("Select the performance score",
                                       step=1, 
                                       value=[int(employee_data['performance_score'].min()),int(employee_data['performance_score'].max())])
 subset_performance = employee_data[employee_data['performance_score'].between(perform_min, perform_max)]
-st.sidebar.write(f"Number of records with Performance between {perform_min} and {perform_max}: {subset_performance.shape[0]}")
+st.sidebar.write(f"Numero de empleados con desempeño entre {perform_min} y {perform_max}: {subset_performance.shape[0]}")
 
 
 #  5. Código para incluir un control para seleccionar
 #     el estado civil del empleado
-selected_marital_status = st.sidebar.multiselect("Select Marital Status", employee_data['marital_status'].unique(), default = default_marital_status)
+selected_marital_status = st.sidebar.multiselect("Selecciona el estatus marital", employee_data['marital_status'].unique(), default = default_marital_status)
 
 employee_filtered = employee_data[
     (employee_data['gender'].isin(selected_gender)) & 
@@ -74,7 +75,7 @@ if not employee_filtered.empty:
             color='gender',
             points="all", 
             hover_data=['name_employee'], # Para que al pasar el mouse diga quién es ese punto
-            title='Average Working Hours vs Gender'
+            title='Promedio de horas trabajadas vs Genero'
         )
     st.plotly_chart(fig7)
 
@@ -86,7 +87,7 @@ if not employee_filtered.empty:
                   y= 'salary',
                   color='gender',
                   hover_data=['name_employee'],
-                  title='Age vs Salary')
+                  title='Edad vs Salario por Genero')
 
     st.plotly_chart(fig8)
 
@@ -98,7 +99,7 @@ if not employee_filtered.empty:
                   y='average_work_hours',
                   color='gender',
                   barmode='group',
-                  title='Performance Rate vs Average working hours')
+                  title='Rango de Desempeño vs Horas trabajadas')
 
     st.plotly_chart(fig9)
 
