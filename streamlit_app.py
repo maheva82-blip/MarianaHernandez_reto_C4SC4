@@ -33,7 +33,7 @@ selected_gender = st.sidebar.multiselect("Selecciona el genero", employee_data['
 
 #  4. Código para incluir un control para seleccionar el rango del
 #     puntaje de desempeño del empleado
-perform_min, perform_max = st.sidebar.slider("Select the performance score",
+perform_min, perform_max = st.sidebar.slider("Selecciona el score de performance",
                                       min_value=int(employee_data['performance_score'].min()),
                                       max_value=int(employee_data['performance_score'].max()), 
                                       step=1, 
@@ -99,7 +99,7 @@ if not employee_filtered.empty:
                   y='average_work_hours',
                   color='gender',
                   barmode='group',
-                  title='Rango de Desempeño vs Horas trabajadas')
+                  title='Performance Score vs Horas trabajadas')
 
     st.plotly_chart(fig9)
 
