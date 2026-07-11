@@ -61,7 +61,7 @@ if not employee_filtered.empty:
                     color='performance_score',
                     text_auto=True   )         
 
-    fig6.update_layout(xaxis=dict(tickmode='linear', tick0=1, dtick=1))
+    fig6.update_xaxes(tickangle=45)
 
     st.plotly_chart(fig6)
 
