@@ -38,9 +38,6 @@ perform_min, perform_max = st.sidebar.slider("Selecciona el score de performance
                                       max_value=int(employee_data['performance_score'].max()), 
                                       step=1, 
                                       value=[int(employee_data['performance_score'].min()),int(employee_data['performance_score'].max())])
-subset_performance = employee_data[employee_data['performance_score'].between(perform_min, perform_max)]
-st.sidebar.write(f"Numero de empleados con desempeño entre {perform_min} y {perform_max}: {subset_performance.shape[0]}")
-
 
 #  5. Código para incluir un control para seleccionar
 #     el estado civil del empleado
@@ -51,6 +48,8 @@ employee_filtered = employee_data[
     (employee_data['performance_score'].between(perform_min, perform_max)) &
     (employee_data['marital_status'].isin(selected_marital_status))
 ]
+
+st.sidebar.write(f"Numero de empleados con desempeño entre {perform_min} y {perform_max} y del genero seleccionado: {employee_filtered.shape[0]}")
 
 if not employee_filtered.empty:
 #  6. Código para visualizar la distribución de los
